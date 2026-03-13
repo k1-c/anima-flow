@@ -24,7 +24,7 @@ impl Scheduler {
             interval.tick().await;
             tracing::info!("heartbeat tick");
             // TODO: Check schedule and execute appropriate skills
-            //   - morning briefing (8:00)
+            //   - briefing (8:00)
             //   - inbox monitoring (every 30 min)
             //   - reminders (every 30 min)
             //   - evening review (18:00)

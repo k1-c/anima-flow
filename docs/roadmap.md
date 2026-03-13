@@ -13,7 +13,7 @@ Cortex（内在化）を構築し、最初の Connectors（観測）を接続す
 - [ ] Google Calendar MCP Connector の導入・設定
 - [ ] Gmail MCP Connector の導入・設定
 - [ ] Linear MCP Connector の導入・設定
-- [ ] `/morning` スキルのプロトタイプ
+- [ ] `/briefing` スキルのプロトタイプ
 
 ### Step 1.5: Context Space の導入
 

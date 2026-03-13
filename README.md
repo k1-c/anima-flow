@@ -35,7 +35,7 @@ graph TB
 | `anima-connectors` | 観測 | 外部サービスアダプタ (Gmail, Slack, Linear, Calendar, Todoist, Chatwork) |
 | `anima-gateway` | 干渉 | ユーザーインターフェース (CLI / Slack Bot) |
 | `anima-heartbeat` | 駆動 | 自律ループスケジューラ |
-| `anima-skills` | 全体 | /morning, /inbox, /breakdown, /review |
+| `anima-skills` | 全体 | /briefing, /inbox, /breakdown, /review |
 
 ## Setup
 
@@ -51,7 +51,7 @@ sqlx migrate run
 # 3. ビルド & 実行
 cargo build
 cargo run             # 対話モード
-cargo run -- morning  # 朝のブリーフィング
+cargo run -- briefing # ブリーフィング
 cargo run -- inbox    # Inbox 処理
 ```
 

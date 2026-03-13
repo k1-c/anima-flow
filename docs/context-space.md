@@ -211,7 +211,7 @@ fetch_inbox(scope: &ConnectorScope)
 ### 干渉（Gateway）
 
 - Skill 実行時、対象の Context Space を明示できる:
-  `cargo run -- morning --space "プロジェクト Alpha"`
+  `cargo run -- briefing --space "プロジェクト Alpha"`
 - 指定がなければ全 active な Context Space を横断的に処理する
 
 ## デフォルト Context Space

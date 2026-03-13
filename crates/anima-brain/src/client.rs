@@ -206,7 +206,7 @@ impl AnthropicClient {
         serde_json::from_str(&text).map_err(|e| Error::Anthropic(format!("parse error: {e}")))
     }
 
-    /// Synthesize a morning briefing from collected data.
+    /// Synthesize a briefing from collected data.
     pub async fn synthesize_briefing(
         &self,
         inbox_summary: &str,
@@ -217,7 +217,7 @@ impl AnthropicClient {
         );
         let resp = self
             .complete(
-                crate::prompt::MORNING_BRIEFING,
+                crate::prompt::BRIEFING,
                 vec![Message {
                     role: "user".into(),
                     content: user_content,

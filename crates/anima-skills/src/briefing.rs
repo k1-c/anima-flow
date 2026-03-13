@@ -3,21 +3,21 @@ use async_trait::async_trait;
 
 use crate::traits::{Skill, SkillContext};
 
-pub struct MorningSkill;
+pub struct BriefingSkill;
 
 #[async_trait]
-impl Skill for MorningSkill {
+impl Skill for BriefingSkill {
     fn name(&self) -> &str {
-        "morning"
+        "briefing"
     }
 
     fn description(&self) -> &str {
-        "Morning briefing: calendar, inbox, tasks, and context"
+        "Briefing: calendar, inbox, tasks, and context"
     }
 
     async fn execute(&self, ctx: &SkillContext, _args: &str) -> Result<()> {
         ctx.gateway
-            .send("☀ Preparing your morning briefing...")
+            .send("📋 Preparing your briefing...")
             .await?;
 
         // 1. Observe: collect inbox from all connectors
@@ -38,7 +38,7 @@ impl Skill for MorningSkill {
         // 2. Internalize: recall relevant context
         let context = ctx
             .context_engine
-            .recall("morning briefing today schedule tasks")
+            .recall("briefing today schedule tasks")
             .await?;
 
         let context_summary: String = context

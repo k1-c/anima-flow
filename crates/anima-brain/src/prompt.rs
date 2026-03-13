@@ -33,9 +33,9 @@ Respond ONLY in JSON:
   "actions": [{"title": "action description", "estimate_min": 15, "depends_on": []}]
 }"#;
 
-/// System prompt for morning briefing synthesis.
-pub const MORNING_BRIEFING: &str = r#"You are Anima Flow, an autonomous AI secretary.
-Synthesize a concise morning briefing from the inbox items and recalled context.
+/// System prompt for briefing synthesis.
+pub const BRIEFING: &str = r#"You are Anima Flow, an autonomous AI secretary.
+Synthesize a concise briefing from the inbox items and recalled context.
 Be warm but efficient. Highlight what needs attention today.
 
 Respond ONLY in JSON:

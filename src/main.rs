@@ -24,8 +24,8 @@ struct Cli {
 
 #[derive(Subcommand)]
 enum Command {
-    /// Morning briefing
-    Morning,
+    /// Briefing
+    Briefing,
     /// Process inbox
     Inbox,
     /// Break down a task
@@ -80,8 +80,8 @@ async fn main() -> anyhow::Result<()> {
     let cli = Cli::parse();
 
     match cli.command {
-        Some(Command::Morning) => {
-            anima_skills::morning::MorningSkill
+        Some(Command::Briefing) => {
+            anima_skills::briefing::BriefingSkill
                 .execute(&skill_ctx, "")
                 .await?;
         }
@@ -191,12 +191,12 @@ async fn interactive_loop(ctx: &SkillContext) -> anyhow::Result<()> {
             "/help" => {
                 ctx.gateway
                     .send(
-                        "Commands:\n  /morning    Morning briefing\n  /inbox      Process inbox\n  /breakdown  Break down a task\n  /review     Daily review\n  /quit       Exit",
+                        "Commands:\n  /briefing   Briefing\n  /inbox      Process inbox\n  /breakdown  Break down a task\n  /review     Daily review\n  /quit       Exit",
                     )
                     .await?;
             }
-            "/morning" => {
-                anima_skills::morning::MorningSkill.execute(ctx, "").await?;
+            "/briefing" => {
+                anima_skills::briefing::BriefingSkill.execute(ctx, "").await?;
             }
             "/inbox" => {
                 anima_skills::inbox::InboxSkill.execute(ctx, "").await?;
