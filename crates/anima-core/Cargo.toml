@@ -1,0 +1,14 @@
+[package]
+name = "anima-core"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+serde.workspace = true
+serde_json.workspace = true
+chrono.workspace = true
+uuid.workspace = true
+thiserror.workspace = true
+anyhow.workspace = true
+sqlx.workspace = true
+ulid.workspace = true

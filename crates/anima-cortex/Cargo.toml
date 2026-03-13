@@ -1,0 +1,14 @@
+[package]
+name = "anima-cortex"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+anima-core.workspace = true
+sqlx.workspace = true
+pgvector.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+chrono.workspace = true
+uuid.workspace = true
+tracing.workspace = true

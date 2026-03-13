@@ -1,0 +1,62 @@
+[workspace]
+members = [
+    "crates/anima-core",
+    "crates/anima-cortex",
+    "crates/anima-context",
+    "crates/anima-brain",
+    "crates/anima-connectors",
+    "crates/anima-gateway",
+    "crates/anima-heartbeat",
+    "crates/anima-skills",
+]
+resolver = "2"
+
+[workspace.dependencies]
+tokio = { version = "1", features = ["full"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+sqlx = { version = "0.8", features = ["runtime-tokio", "tls-rustls", "postgres", "chrono", "uuid", "json"] }
+reqwest = { version = "0.12", features = ["json"] }
+chrono = { version = "0.4", features = ["serde"] }
+uuid = { version = "1", features = ["v4", "serde"] }
+thiserror = "2"
+anyhow = "1"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+async-trait = "0.1"
+dotenvy = "0.15"
+pgvector = { version = "0.4", features = ["sqlx"] }
+ulid = { version = "1", features = ["serde"] }
+clap = { version = "4", features = ["derive"] }
+
+# Internal crates
+anima-core = { path = "crates/anima-core" }
+anima-cortex = { path = "crates/anima-cortex" }
+anima-context = { path = "crates/anima-context" }
+anima-brain = { path = "crates/anima-brain" }
+anima-connectors = { path = "crates/anima-connectors" }
+anima-gateway = { path = "crates/anima-gateway" }
+anima-heartbeat = { path = "crates/anima-heartbeat" }
+anima-skills = { path = "crates/anima-skills" }
+
+[package]
+name = "anima-flow"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+anima-core.workspace = true
+anima-cortex.workspace = true
+anima-context.workspace = true
+anima-brain.workspace = true
+anima-connectors.workspace = true
+anima-gateway.workspace = true
+anima-heartbeat.workspace = true
+anima-skills.workspace = true
+anyhow.workspace = true
+tokio.workspace = true
+tracing.workspace = true
+tracing-subscriber.workspace = true
+dotenvy.workspace = true
+clap.workspace = true
+sqlx.workspace = true

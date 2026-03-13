@@ -1,0 +1,13 @@
+[package]
+name = "anima-context"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+anima-core.workspace = true
+anima-cortex.workspace = true
+anima-brain.workspace = true
+chrono.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+tracing.workspace = true
