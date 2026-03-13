@@ -2,30 +2,26 @@
 
 **Your second cortex, always on.**
 
-**観測（Observe）→ 内在化（Internalize）→ 干渉（Intervene）** の認知ループを回し続ける、自律型 AI 秘書エージェント。
+**観測（Observe）→ 内在化（Internalize）→ 干渉（Intervene）** の認知ループを回し続ける、自律学習型常駐エージェント。
 
 ## Architecture
 
-```
-        ┌──────────────────────────────────────┐
-        │            現実世界                    │
-        │  Gmail, Slack, Linear, Calendar, ...  │
-        └──┬───────────────────────────────┬───┘
-           │ 観測                     干渉 │
-           ▼                              ▲
-    ┌─────────────┐                ┌──────────────┐
-    │ Connectors  │                │   Gateway     │
-    └──────┬──────┘                └──────▲───────┘
-           │                              │
-           ▼                              │
-    ┌──────────────────────────────────────┴───┐
-    │                 Cortex                    │
-    │          Node + Edge Graph (Neon)         │
-    │     Memory / Knowledge Base / SSoT        │
-    │                                           │
-    │     Context Engine → Brain → Skills       │
-    │     Heartbeat が自律的に駆動              │
-    └──────────────────────────────────────────┘
+```mermaid
+graph TB
+    Real["🌐 現実世界<br/>Gmail, Slack, Linear, Calendar,<br/>Todoist, Chatwork, ..."]
+
+    Real -- "観測" --> Connectors
+    Gateway -- "干渉" --> Real
+
+    subgraph Cortex["🧠 Cortex"]
+        direction TB
+        Store["Node + Edge Graph (Neon)<br/>Memory / Knowledge Base / SSoT"]
+        Pipeline["Context Engine → Brain → Skills"]
+        Heartbeat["Heartbeat が自律的に駆動"]
+    end
+
+    Connectors --> Cortex
+    Cortex --> Gateway
 ```
 
 ## Crates
@@ -36,7 +32,7 @@
 | `anima-cortex` | 内在化 | Node/Edge CRUD + グラフ探索 (Neon Postgres) |
 | `anima-context` | 内在化 | Context Engine — 6段パイプラインで想起 |
 | `anima-brain` | 駆動 | Anthropic Claude API クライアント |
-| `anima-connectors` | 観測 | 外部サービスアダプタ (Gmail, Slack, Linear 等) |
+| `anima-connectors` | 観測 | 外部サービスアダプタ (Gmail, Slack, Linear, Calendar, Todoist, Chatwork) |
 | `anima-gateway` | 干渉 | ユーザーインターフェース (CLI / Slack Bot) |
 | `anima-heartbeat` | 駆動 | 自律ループスケジューラ |
 | `anima-skills` | 全体 | /morning, /inbox, /breakdown, /review |
@@ -67,6 +63,7 @@ cargo run -- inbox    # Inbox 処理
 - [Architecture](./docs/architecture.md) — 認知ループに基づくアーキテクチャ
 - [Cortex](./docs/cortex.md) — 内在化レイヤー (Memory / KB / SSoT)
 - [Context Engine](./docs/context-engine.md) — 想起エンジン
+- [Context Space](./docs/context-space.md) — コンテキスト空間の定義
 - [Connectors](./docs/connectors.md) — 観測レイヤー
 - [Workflows](./docs/workflows.md) — GTD ワークフロー & Skills
 - [Roadmap](./docs/roadmap.md) — 実装ロードマップ
